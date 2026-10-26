@@ -5,77 +5,23 @@ type Slide = {
   titulo: string
   capa?: boolean
   compacto?: boolean
-  poster?: boolean
+  centralizado?: boolean
   tempo: string
   notas: string[]
   corpo: ReactNode
-}
-
-type StatusHttp = {
-  codigo: number
-  grupo: string
-  texto: string
-}
-
-const statusHttp: StatusHttp[] = [
-  { codigo: 200, grupo: 'Success', texto: 'O raro momento em que tudo funciona.' },
-  { codigo: 201, grupo: 'Success', texto: 'Criado. E voc\u00ea jurando que n\u00e3o ia dar certo.' },
-  { codigo: 204, grupo: 'Success', texto: 'OK, mas sem resposta... tipo ghosting.' },
-  { codigo: 301, grupo: 'Redirect', texto: 'Mudou de endere\u00e7o, mas te avisa.' },
-  { codigo: 302, grupo: 'Redirect', texto: 'Mudou temporariamente (vida de n\u00f4made).' },
-  { codigo: 400, grupo: 'Client Error', texto: 'A culpa \u00e9 do usu\u00e1rio. Sempre.' },
-  { codigo: 401, grupo: 'Client Error', texto: 'Sem credencial, sem entrada.' },
-  { codigo: 403, grupo: 'Client Error', texto: 'Mesmo com permiss\u00e3o, n\u00e3o entra.' },
-  { codigo: 404, grupo: 'Client Error', texto: 'O cl\u00e1ssico: s\u00f3 existe em produ\u00e7\u00e3o.' },
-  { codigo: 500, grupo: 'Server Error', texto: 'Hora de culpar a infra.' },
-  { codigo: 501, grupo: 'Server Error', texto: '\u201cAinda n\u00e3o implementado\u201d (e talvez nunca seja).' },
-  { codigo: 502, grupo: 'Server Error', texto: 'O servidor surtou, tente mais tarde.' },
-  { codigo: 503, grupo: 'Server Error', texto: 'O servi\u00e7o decidiu tirar f\u00e9rias.' },
-  { codigo: 504, grupo: 'Server Error', texto: 'O servidor est\u00e1 te ignorando.' },
-]
-
-function MastheadPoster() {
-  return (
-    <header className="poster-masthead">
-      <br></br>
-      <br></br>
-      <p className="poster-http">HTTP Status Code</p>
-      <p className="poster-tagline">{'(para pessoas desenvolvedoras de verdade)'}</p>
-      <br></br>
-      <br></br>
-      <br></br>
-    </header>
-  )
-}
-
-function ListaPoster({ itens, comCabecalho }: { itens: StatusHttp[]; comCabecalho?: boolean }) {
-  return (
-    <div className="poster-conteudo">
-      {comCabecalho && <MastheadPoster />}
-      <div className="poster-lista">
-        {itens.map(item => (
-          <p key={item.codigo} className="poster-linha">
-            <span className="poster-meta">({item.codigo}) {item.grupo}</span>
-            {' '}
-            {item.texto}
-          </p>
-        ))}
-      </div>
-    </div>
-  )
 }
 
 const faixa = 'PrograMaria e Grupo Botic\u00e1rio'
 
 const slides: Slide[] = [
   {
-    selo: 'Cat\u00e1logo',
+    selo: 'APIs',
     titulo: 'Como os sistemas conversam?',
     capa: true,
     tempo: 'Setas para avan\u00e7ar',
     notas: [
-      'At\u00e9 1 minuto. Ideias, status HTTP, depois a demo.',
-      'N mostra estas notas. Esc volta ao cat\u00e1logo.',
+      'Agrade\u00e7a ao PrograMaria pelo convite.',
+      'Pergunte: quem aqui j\u00e1 usa IA no trabalho? E quem sente que o trabalho do time mudou de verdade?',
     ],
     corpo: (
       <>
@@ -85,25 +31,51 @@ const slides: Slide[] = [
           <div>
             <p className="apresentadora-nome">Carolina Armentano</p>
             <p className="apresentadora-cargo">Pessoa Desenvolvedora Sênior</p>
-            <p className="apresentadora-cargo">no Grupo Boticário</p>
+            <p className="apresentadora-cargo">Venda Direta Backoffice · Grupo Boticário</p>
+            <p className="apresentadora-canais">
+              <a href="https://www.instagram.com/armentanocarolina/" target="_blank" rel="noreferrer">@armentanocarolina</a>
+              {' \u00b7 '}
+              <a href="https://github.com/armentanoc" target="_blank" rel="noreferrer">@armentanoc</a>
+            </p>
           </div>
         </div>
       </>
     ),
   },
   {
-    selo: 'Apresenta\u00e7\u00e3o',
-    titulo: 'A transi\u00e7\u00e3o come\u00e7a numa conversa',
+    selo: 'Minha trajet\u00f3ria',
+    titulo: 'Minhas transi\u00e7\u00f5es de carreira',
+    compacto: true,
+    centralizado: true,
     tempo: '2 min',
     notas: [
-      'Conte a sua hist\u00f3ria em um minuto. N\u00e3o leia o slide.',
-      'Feche assim: o resto desta meia hora \u00e9 um pedido de perfume.',
+      'Conte a sua hist\u00f3ria sem ler o slide: de Direito e Neg\u00f3cios para Produto e Desenvolvimento.',
+      'Apresente as mudan\u00e7as como caminhos poss\u00edveis, n\u00e3o como uma receita \u00fanica.',
     ],
     corpo: (
-      <ul>
-        <li>{'Voc\u00ea n\u00e3o precisa decorar sigla.'}</li>
-        <li>{'No GB, a tela quase nunca \u00e9 o sistema inteiro.'}</li>
-        <li>{'Hoje a conversa \u00e9 um pedido de perfume.'}</li>
+      <ol className="trajetoria">
+        <li><span>01</span>Estagiária de Direito</li>
+        <li><span>02</span>Advogada</li>
+        <li><span>03</span>Analista de Negócios</li>
+        <li><span>04</span>Gerente de Produto</li>
+        <li><span>05</span>Estagiária de Desenvolvimento</li>
+        <li><span>06</span>Desenvolvedora Backend</li>
+      </ol>
+    ),
+  },
+  {
+    selo: 'Transi\u00e7\u00e3o de carreira',
+    titulo: 'A transi\u00e7\u00e3o come\u00e7a numa conversa.',
+    tempo: '3 min',
+    notas: [
+      'Reforce que a transi\u00e7\u00e3o come\u00e7a entendendo o que faz sentido para cada pessoa.',
+      'Retome as respostas da abertura: a diferen\u00e7a entre usar IA e perceber uma mudan\u00e7a real no trabalho do time \u00e9 o tema de hoje.',
+    ],
+    corpo: (
+      <ul className="ideias">
+        <li>Entenda o que faz sentido para você.</li>
+        <li>Existem muitos caminhos entre as coisas de que você gosta e o trabalho que quer fazer.</li>
+        <li>A tela quase nunca é o sistema inteiro.</li>
       </ul>
     ),
   },
@@ -112,111 +84,127 @@ const slides: Slide[] = [
     titulo: 'Cliente pede. Servidor responde.',
     tempo: '2 min',
     notas: [
-      'S\u00edncrono \u00e9 o balc\u00e3o: pede o perfume e espera o tem ou o n\u00e3o tem.',
-      'Ass\u00edncrono \u00e9 deixar o recado e seguir. Uma frase. Sem desenhar fila.',
+      'S\u00edncrono \u00e9 pedir e esperar a resposta, como em um telefonema. A demonstra\u00e7\u00e3o funciona assim.',
+      'Ass\u00edncrono \u00e9 mandar o recado e seguir; pode envolver fila ou evento. N\u00e3o vamos focar nisso hoje.',
     ],
     corpo: (
       <div className="par">
         <article>
-          <h3>{'S\u00edncrono'}</h3>
-          <p>{'Pede e espera a resposta. \u00c9 um telefonema. A demo \u00e9 assim.'}</p>
+          <h3>SÍNCRONO</h3>
+          <p>Pede e espera a resposta. É um telefonema. A demonstração é assim.</p>
         </article>
         <article>
-          <h3>{'Ass\u00edncrono'}</h3>
-          <p>{'Manda o recado e segue. Fila ou evento. Aqui a gente n\u00e3o vai falar sobre isso.'}</p>
+          <h3>ASSÍNCRONO</h3>
+          <p>Manda o recado e segue. Pode ser fila ou evento; não vamos focar nisso hoje.</p>
         </article>
       </div>
     ),
   },
   {
-    selo: 'O que \u00e9 uma API',
-    titulo: 'O contrato da conversa',
-    tempo: '3 min',
+    selo: 'Como falar com uma API',
+    titulo: 'Verbo, caminho e dados da requisi\u00e7\u00e3o',
+    compacto: true,
+    centralizado: true,
+    tempo: '4 min',
     notas: [
-      'API \u00e9 o combinado: verbo, caminho, corpo e resposta.',
-      'O JSON \u00e9 o produto da demo: id, nome, descri\u00e7\u00e3o, ativo e imagem. A resposta real tamb\u00e9m traz as datas.',
-      'Se perguntarem PATCH: esta API atualiza com PUT.',
+      'Explique os verbos HTTP e os lugares em que uma requisi\u00e7\u00e3o pode levar dados.',
+      'Em dois minutos: SDD \u00e9 um modelo em que uma especifica\u00e7\u00e3o rica em contexto real (decis\u00f5es, regras de neg\u00f3cio e restri\u00e7\u00f5es) guia os agentes de IA.',
+      'Passe rapidamente pelas etapas. Constitution, Specify e Clarify acontecem antes do c\u00f3digo: \u00e9 quando Produto, Design e Engenharia constroem juntos e decidem grande parte do resultado.',
     ],
     corpo: (
       <>
         <div className="verbos">
-          <span><b>GET</b> {'l\u00ea'}</span>
-          <span><b>POST</b> cria</span>
-          <span><b>PUT</b> atualiza</span>
-          <span><b>PATCH</b> atualiza parte</span>
-          <span><b>DELETE</b> apaga</span>
+          <span><b>GET</b>Leia</span>
+          <span><b>POST</b>Crie</span>
+          <span><b>PUT</b>Atualize tudo</span>
+          <span><b>PATCH*</b>Atualize em parte</span>
+          <span><b>OPTIONS*</b>Me informe</span>
+          <span><b>DELETE</b>Apague</span>
         </div>
-        <pre>{`{
-  "id": 1,
-  "nome": "Lily Eau de Parfum 75ml",
-  "descricao": "Eau de parfum floral da linha Lily.",
-  "estaAtivo": true,
-  "imagens": [
-    { "id": 1, "produtoId": 1, "url": "https://cdn.gbmedia.com.br/lily.jpg" }
-  ]
-}`}</pre>
-        <p className="fecha">JSON de GET /api/produtos/1. O Swagger mostra o resto.</p>
+        <p className="nota-metodos">* Em um sistema funcional, é comum encontrar GET, POST, PUT e DELETE.</p>
+        <div className="anatomia">
+          <h3>Onde vão os dados?</h3>
+          <p><b>Corpo / Payload</b> Conteúdo da requisição</p>
+          <p><b>Query parameter</b> Filtro na URL</p>
+          <p><b>Path parameter</b> Parte do caminho</p>
+          <p><b>Headers</b> Metadados, como autenticação</p>
+        </div>
       </>
     ),
   },
   {
-    selo: 'IA no entendimento e no teste',
-    titulo: 'A IA explica. Voc\u00ea confere.',
-    tempo: '2 min',
-    notas: [
-      'Portugu\u00eas s\u00f3 se o ingl\u00eas do contrato travar algu\u00e9m.',
-      'A instru\u00e7\u00e3o cita verbo, caminho e um campo. O status confirma.',
-      'Senha, token e dado de cliente ficam fora do chat.',
-    ],
-    corpo: (
-      <ul>
-        <li>{'Portugu\u00eas, se o ingl\u00eas for obst\u00e1culo.'}</li>
-        <li>{'Pe\u00e7a o passo, com detalhe.'}</li>
-        <li>{'Um campo por vez.'}</li>
-        <li>{'Leia o status antes do texto.'}</li>
-        <li>{'Sem senha, token ou dado de cliente.'}</li>
-      </ul>
-    ),
-  },
-  {
-    selo: '',
-    titulo: 'HTTP Status Code',
-    poster: true,
+    selo: 'C\u00f3digos de resposta HTTP',
+    titulo: 'E como a API fala comigo?',
     compacto: true,
-    tempo: '2 min',
+    centralizado: true,
+    tempo: '3 min',
     notas: [
-      'O n\u00famero vem antes do JSON. Tom humor\u00edstico para fixar, n\u00e3o para decorar.',
-      '200 \u00e9 o cat\u00e1logo carregado. 401 \u00e9 GET /api/produtos sem token.',
-      '404 na demo costuma ser caminho errado. 500 \u00e9 API fora ou bug no servidor.',
-      'Na vitrine, falha de rede tamb\u00e9m parece \u201cAPI fora\u201d \u2014 confira localhost:5080.',
+      'Diga para ler os logs. Conte com calma os grupos e seus exemplos.',
+      'No experimento com IA, a velocidade melhorou, mas o gargalo foi para a homologa\u00e7\u00e3o e a revis\u00e3o de c\u00f3digo ficou mais pesada.',
+      'A percep\u00e7\u00e3o do time se inverteu: nos pilotos, houve mais clareza de produto e menos confian\u00e7a t\u00e9cnica; nos controles, o contr\u00e1rio.',
+    ],
+    corpo: (
+      <div className="status-lista">
+        <article><b>2xx</b><h3>Tudo certo!</h3><p>201 Criado · 200 OK</p></article>
+        <article><b>3xx</b><h3>Alguma coisa mudou</h3><p>301 Redirecionado · 302 Movido temporariamente</p></article>
+        <article><b>4xx</b><h3>Erro do seu lado</h3><p>400 Requisição ruim · 401 Não autorizado</p></article>
+        <article><b>5xx</b><h3>Erro do meu lado</h3><p>501 Não implementado · 503 Serviço indisponível</p></article>
+        <p className="dica-logs">Dica: Leia os logs!</p>
+      </div>
+    ),
+  },
+  {
+    selo: 'IA e desenvolvimento',
+    titulo: 'A IA explica. Voc\u00ea confere.',
+    compacto: true,
+    centralizado: true,
+    tempo: '4 min',
+    notas: [
+      'Idioma: a constru\u00e7\u00e3o de software costuma ser padronizada em ingl\u00eas; a IA pode ajudar com a tradu\u00e7\u00e3o.',
+      'Entendimento: ela pode ajudar a montar uma chamada completa ou entender uma resposta.',
+      'Documenta\u00e7\u00e3o: use a IA como apoio para documentar chamadas, por exemplo no Swagger.',
+      'Ambiente: alguns sistemas exigem ferramentas e depend\u00eancias instaladas na sua m\u00e1quina.',
+      'Seguran\u00e7a: nunca envie senhas, tokens ou dados de clientes.',
+      'A IA pode acelerar novas funcionalidades, testes e corre\u00e7\u00f5es. Seja honesta sobre limites e aprendizados: isso gera confian\u00e7a.',
+      'Feche com a s\u00edntese do experimento: nenhum desses pontos anula o m\u00e9todo; o SDD mostra que a esteira inteira precisa evoluir junto.',
     ],
     corpo: (
       <>
-        <ListaPoster itens={statusHttp} comCabecalho />
-        <p className="poster-dica">{'Dica: Leia os logs!'}</p>
+        <div className="apoios-ia">
+          <article><b>01</b><h3>Idioma</h3><p>O inglês é comum no código; a IA pode ajudar na tradução.</p></article>
+          <article><b>02</b><h3>Entendimento</h3><p>Monte uma chamada e interprete a resposta.</p></article>
+          <article><b>03</b><h3>Documentação</h3><p>Documente chamadas, por exemplo no Swagger.</p></article>
+          <article><b>04</b><h3>Ambiente</h3><p>Prepare as ferramentas e dependências necessárias.</p></article>
+          <article><b>05</b><h3>Segurança</h3><p>Nunca envie senhas, tokens ou dados de clientes.</p></article>
+        </div>
+        <p className="fecho-ia">Nenhum desses pontos anula o método: o SDD exige que a esteira inteira evolua junto.</p>
       </>
     ),
   },
   {
-    selo: 'Caso pr\u00e1tico',
-    titulo: 'Um pedido de perfumaria',
-    tempo: 'demo, 15 min',
+    selo: 'M\u00e3os \u00e0 obra',
+    titulo: 'Vamos praticar?',
+    tempo: 'Pr\u00e1tica',
     notas: [
-      'GET /api/saude. Aberto. 200. JSON pequeno. S\u00edncrono.',
-      'GET /api/produtos sem token. 401. Autoriza\u00e7\u00e3o.',
-      'POST /api/autenticacao. admin / admin@123. Autentica\u00e7\u00e3o. No Swagger, cole o token no Authorize, sem a palavra Bearer.',
-      'GET /api/produtos com token. Na vitrine, o c\u00f3digo faz isso sozinho (aba Rede). Aponte o Lily.',
-      'POST de um perfume curto. 201. O verbo criou. Se sobrar tempo, PUT ou DELETE.',
+      'Abra a aplica\u00e7\u00e3o e o Swagger da API.',
+      'Reposit\u00f3rio da interface: https://github.com/armentanoc/produtos-ui',
+      'Reposit\u00f3rio da API: https://github.com/armentanoc/produtos-api',
     ],
     corpo: (
-      <>
-        <ol className="passos">
-          <li><em>01</em> {'Autentica\u00e7\u00e3o: POST /api/autenticacao diz quem \u00e9 o cliente.'}</li>
-          <li><em>02</em> {'Autoriza\u00e7\u00e3o: GET /api/produtos leva o token no cabe\u00e7alho.'}</li>
-          <li><em>03</em> {'Sem token, a lista responde 401.'}</li>
-        </ol>
-        <p className="agora">Agora a gente faz essa conversa.</p>
-      </>
+      <div className="pratica">
+        <a href="https://produtos-gb-programaria-ui.vercel.app/" target="_blank" rel="noreferrer">
+          <span>Interface</span>produtos-gb-programaria-ui.vercel.app
+        </a>
+        <a href="https://github.com/armentanoc/produtos-ui" target="_blank" rel="noreferrer">
+          <span>Código da interface</span>github.com/armentanoc/produtos-ui
+        </a>
+        <a href="https://produtos-gb-programaria-api.vercel.app/swagger" target="_blank" rel="noreferrer">
+          <span>API · Swagger</span>produtos-gb-programaria-api.vercel.app/swagger
+        </a>
+        <a href="https://github.com/armentanoc/produtos-api" target="_blank" rel="noreferrer">
+          <span>Código da API</span>github.com/armentanoc/produtos-api
+        </a>
+      </div>
     ),
   },
 ]
@@ -281,7 +269,7 @@ export function Apresentacao({ aoVoltar }: { aoVoltar: () => void }) {
   }, [aoVoltar])
 
   const aoClicar = (evento: MouseEvent<HTMLElement>) => {
-    if ((evento.target as HTMLElement).closest('button, .notas')) return
+    if ((evento.target as HTMLElement).closest('a, button, .notas')) return
     setIndice(atual => evento.clientX > window.innerWidth / 2
       ? Math.min(atual + 1, slides.length - 1)
       : Math.max(atual - 1, 0))
@@ -295,17 +283,17 @@ export function Apresentacao({ aoVoltar }: { aoVoltar: () => void }) {
         <div className={[
           'miolo',
           slide.compacto ? 'miolo-compacto' : '',
-          slide.poster ? 'miolo-poster' : '',
+          slide.centralizado ? 'miolo-centralizado' : '',
         ].filter(Boolean).join(' ')}>
-          {!slide.poster && (slide.capa ? (
+          {slide.capa ? (
             <div className="cabeca">
               <Marca />
               <p className="selo">{slide.selo}</p>
             </div>
           ) : (
             <p className="selo">{slide.selo}</p>
-          ))}
-          {!slide.poster && (slide.capa ? <h1>{slide.titulo}</h1> : <h2>{slide.titulo}</h2>)}
+          )}
+          {slide.capa ? <h1>{slide.titulo}</h1> : <h2>{slide.titulo}</h2>}
           {slide.corpo}
         </div>
         <footer className="rodape">

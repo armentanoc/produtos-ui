@@ -1,4 +1,4 @@
-import { useEffect, useState, type MouseEvent } from 'react'
+import { useEffect, useState, type MouseEvent, type ReactNode } from 'react'
 import { buscarConfiguracao, buscarProdutos, enderecoDaApi } from './api'
 import type { Produto } from './tipos'
 
@@ -10,7 +10,7 @@ export function Catalogo({ aoAbrirApresentacao }: { aoAbrirApresentacao: () => v
   const [subtitulo, setSubtitulo] = useState(subtituloPadrao)
   const [produtos, setProdutos] = useState<Produto[]>([])
   const [carregando, setCarregando] = useState(true)
-  const [erro, setErro] = useState('')
+  const [erro, setErro] = useState<ReactNode>(null)
   const [aberto, setAberto] = useState<Produto | null>(null)
 
   useEffect(() => {
@@ -32,7 +32,15 @@ export function Catalogo({ aoAbrirApresentacao }: { aoAbrirApresentacao: () => v
       })
       .catch(() => {
         if (!ativo) return
-        setErro(`N\u00e3o consegui carregar os produtos. Confira se a API est\u00e1 no ar em ${enderecoDaApi()}.`)
+        const swagger = `${enderecoDaApi()}/swagger`
+        setErro(
+          <>
+            {'N\u00e3o consegui carregar os produtos.'}
+            <br />
+            {'Confira se a API est\u00e1 no ar em '}
+            <a href={swagger} target="_blank" rel="noreferrer">{swagger}</a>.
+          </>
+        )
       })
       .finally(() => {
         if (ativo) setCarregando(false)

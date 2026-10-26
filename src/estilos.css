@@ -104,7 +104,12 @@ h1 {
   color: var(--cinza);
 }
 
-.aviso.erro { color: #8d2d2d; }
+.aviso.erro {
+  color: #8d2d2d;
+  margin: 48px auto 40vh;
+  max-width: 60ch;
+  text-align: center;
+}
 
 .grade {
   display: grid;
@@ -565,59 +570,53 @@ body.em-apresentacao { background: var(--faixa); }
   max-width: none;
 }
 
-.palco .miolo-poster {
-  justify-content: flex-start;
-  padding-top: 16px;
+.palco .miolo-compacto.miolo-centralizado {
+  justify-content: center;
+  padding-block: 32px;
 }
 
-.palco .poster-masthead {
-  margin: 0 0 20px;
+.palco .miolo-centralizado > .selo,
+.palco .miolo-centralizado > h2 {
   text-align: center;
 }
 
-.palco .poster-http {
-  margin: 0;
-  font-size: 58px;
-  font-weight: 800;
-  letter-spacing: -0.04em;
-  line-height: 0.95;
+.palco .miolo-centralizado .trajetoria {
+  width: 100%;
+  max-width: 1020px;
+  margin: 30px auto 0;
 }
 
-.palco .poster-titulo {
-  margin: -2px 0 0;
-  font-size: 50px;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  line-height: 1.05;
+.palco .miolo-centralizado .verbos,
+.palco .miolo-centralizado .nota-metodos,
+.palco .miolo-centralizado .anatomia,
+.palco .miolo-centralizado .status-lista,
+.palco .miolo-centralizado .apoios-ia {
+  width: 100%;
+  max-width: 1080px;
+  margin-inline: auto;
 }
 
-.palco .poster-tagline {
-  margin: 8px 0 0;
-  color: var(--cinza);
-  font-size: 20px;
-  font-weight: 400;
+.palco .miolo-centralizado .verbos {
+  margin-top: 26px;
 }
 
-.palco .poster-conteudo {
-  flex: 1;
-  min-height: 0;
+.palco .miolo-centralizado .nota-metodos {
+  margin-block: 12px 18px;
+  text-align: center;
 }
 
-.palco .poster-lista {
-  column-count: 2;
-  column-gap: 56px;
+.palco .miolo-centralizado .anatomia {
+  gap: 14px 20px;
 }
 
-.palco .poster-linha {
-  margin: 0 0 11px;
-  break-inside: avoid;
-  font-size: 17px;
-  line-height: 1.42;
-  color: var(--tinta);
+.palco .miolo-centralizado .anatomia h3,
+.palco .miolo-centralizado .anatomia p {
+  text-align: center;
 }
 
-.palco .poster-meta {
-  font-weight: 700;
+.palco .miolo-centralizado .status-lista article,
+.palco .miolo-centralizado .apoios-ia article {
+  text-align: center;
 }
 
 .palco .apresentadora {
@@ -646,12 +645,205 @@ body.em-apresentacao { background: var(--faixa); }
   font-size: 20px;
 }
 
-.palco .poster-dica {
-  margin: 18px 0 0;
+.palco .apresentadora-canais {
+  margin: 10px 0 0;
+  font-size: 17px;
+}
+
+.palco .apresentadora-canais a {
+  color: var(--verde);
+  text-decoration: none;
+}
+
+.palco .apresentadora-canais a:hover,
+.palco .pratica a:hover {
+  text-decoration: underline;
+}
+
+.palco .trajetoria {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin: 28px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.palco .trajetoria li {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-height: 92px;
+  padding: 16px 20px;
+  border: 1px solid var(--linha);
+  background: var(--branco);
+  font-size: 22px;
+  line-height: 1.25;
+}
+
+.palco .trajetoria li span,
+.palco .apoios-ia article > b {
+  color: var(--verde);
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+
+.palco .verbos {
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.palco .verbos span {
+  padding: 14px 18px;
+  font-size: 18px;
+}
+
+.palco .verbos b {
+  margin-bottom: 5px;
+  font-size: 16px;
+}
+
+.palco .nota-metodos {
+  margin: 10px 0 12px;
+  color: var(--cinza);
+  font-size: 14px;
+}
+
+.palco .anatomia {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px 18px;
+  padding-top: 12px;
+  border-top: 1px solid var(--linha);
+}
+
+.palco .anatomia h3 {
+  grid-column: 1 / -1;
+  margin: 0;
+  color: var(--verde);
+  font-size: 17px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.palco .anatomia p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.35;
+}
+
+.palco .anatomia p b {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--tinta);
+  font-size: 16px;
+}
+
+.palco .status-lista {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  margin-top: 22px;
+}
+
+.palco .status-lista article {
+  padding: 17px 22px;
+  border: 1px solid var(--linha);
+  background: var(--branco);
+}
+
+.palco .status-lista article > b {
+  color: var(--verde);
+  font-size: 20px;
+  letter-spacing: 0.06em;
+}
+
+.palco .status-lista h3 {
+  margin: 6px 0;
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.palco .status-lista p {
+  margin: 0;
+  color: var(--cinza);
+  font-size: 16px;
+  line-height: 1.35;
+}
+
+.palco .status-lista .dica-logs {
+  grid-column: 1 / -1;
   color: var(--verde);
   font-size: 20px;
   font-weight: 600;
   text-align: center;
+}
+
+.palco .apoios-ia {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.palco .apoios-ia article {
+  min-height: 116px;
+  padding: 14px 18px;
+  border: 1px solid var(--linha);
+  background: var(--branco);
+}
+
+.palco .apoios-ia h3 {
+  margin: 6px 0;
+  color: var(--tinta);
+  font-size: 19px;
+  font-weight: 500;
+}
+
+.palco .apoios-ia p {
+  margin: 0;
+  color: var(--cinza);
+  font-size: 15px;
+  line-height: 1.35;
+}
+
+.palco .fecho-ia {
+  margin: 16px 0 0;
+  color: var(--verde);
+  font-size: 23px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.palco .pratica {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-top: 34px;
+}
+
+.palco .pratica a {
+  display: flex;
+  min-height: 100px;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+  padding: 18px 22px;
+  border: 1px solid var(--linha);
+  background: var(--branco);
+  color: var(--tinta);
+  font-size: 21px;
+  text-decoration: none;
+}
+
+.palco .pratica a span {
+  color: var(--verde);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .palco .rodape {
